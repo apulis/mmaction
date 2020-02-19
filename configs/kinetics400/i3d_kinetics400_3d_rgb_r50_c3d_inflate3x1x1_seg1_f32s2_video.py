@@ -3,7 +3,7 @@ model = dict(
     type='TSN3D',
     backbone=dict(
         type='ResNet_I3D',
-        pretrained='modelzoo://resnet50',
+        pretrained='torchvision://resnet50',
         depth=50,
         num_stages=4,
         out_indices=[3],
@@ -39,12 +39,12 @@ test_cfg = None
 dataset_type = 'VideoDataset'
 data_root = 'data/kinetics400/videos_train/'
 data_root_val = 'data/kinetics400/videos_val/'
-use_decord = False
+use_decord = True
 video_ext = 'mp4'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 data = dict(
-    videos_per_gpu=8,
+    videos_per_gpu=16,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
@@ -142,7 +142,7 @@ log_config = dict(
 total_epochs = 100
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = './work_dirs/i3d_kinetics_3d_rgb_r50_c3d_inflate3x1x1_seg1_f32s2_b8_g8_imagenet'
+work_dir = './work_dirs/kinetics400/i3d_kinetics_3d_rgb_r50_c3d_inflate3x1x1_seg1_f32s2_b8_g8_imagenet'
 load_from = None
 resume_from = None
 
