@@ -1,6 +1,14 @@
 #! /usr/bin/bash env
 
+# please make sure unrar has been installed
+# sudo apt-get install unrar
+
 DATA_DIR="../../data/ucf101/"
+
+if [[ ! -d "${DATA_DIR}" ]]; then
+  echo "${DATA_DIR} does not exist. Creating";
+  mkdir -p ${DATA_DIR}
+fi
 
 cd ${DATA_DIR}
 
