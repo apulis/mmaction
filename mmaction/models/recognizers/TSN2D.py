@@ -2,6 +2,7 @@ import torch.nn as nn
 from .base import BaseRecognizer
 from .. import builder
 from ..registry import RECOGNIZERS
+from .temporal_shift import make_temporal_shift
 
 
 @RECOGNIZERS.register_module
@@ -15,7 +16,8 @@ class TSN2D(BaseRecognizer):
                  segmental_consensus=None,
                  cls_head=None,
                  train_cfg=None,
-                 test_cfg=None):
+                 test_cfg=None,
+                 tsm_module=False):
 
         super(TSN2D, self).__init__()
         self.backbone = builder.build_backbone(backbone)
@@ -48,6 +50,10 @@ class TSN2D(BaseRecognizer):
 
         if modality == 'Flow' or modality == 'RGBDiff':
             self._construct_2d_backbone_conv1(in_channels)
+        
+        if tsm_module:
+            # def make_temporal_shift(net, n_segment, n_div=8, place='blockres', temporal_pool=False):
+            make_temporal_shift(self.backbone, 8) # TODO: update n_segment from cfg
 
     @property
     def with_spatial_temporal_module(self):
