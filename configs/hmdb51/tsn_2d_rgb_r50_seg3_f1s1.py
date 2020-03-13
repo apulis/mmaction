@@ -3,7 +3,7 @@ model = dict(
     type='TSN2D',
     backbone=dict(
         type='ResNet',
-        pretrained='modelzoo://resnet50',
+        pretrained='torchvision://resnet50',
         depth=50,
         out_indices=(3,),
         bn_eval=False,
@@ -32,7 +32,7 @@ img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 
 data = dict(
-    videos_per_gpu=32,
+    videos_per_gpu=16,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
