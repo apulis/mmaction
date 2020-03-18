@@ -149,7 +149,7 @@ log_config = dict(
     interval=5,
     hooks=[
         dict(type='TextLoggerHook'),
-        # dict(type='TensorboardLoggerHook')
+        dict(type='TensorboardLoggerHook')
     ])
 # yapf:enable
 # runtime settings
