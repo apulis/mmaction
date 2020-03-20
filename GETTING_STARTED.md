@@ -55,7 +55,7 @@ To perform temporal action detection on THUMOS14, we can training a baseline mod
 and evaluate a reference model by running
 ```shell
 wget -c wget -c https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmaction/models/thumos14/ssn_thumos14_rgb_bn_inception_tag-dac9ddb0.pth -P modelzoo/
-python tools/test_detector.py configs/thumos14/ssn_thumos14_rgb_bn_inception.py modelzoo/ssn_thumos14_rgb_bn_inception_tag-dac9ddb0.pth --gpus 8 --out ssn_thumos14_rgb_bn_inception.pkl --eval thumos14
+python tools/test_localizer.py configs/thumos14/ssn_thumos14_rgb_bn_inception.py modelzoo/ssn_thumos14_rgb_bn_inception_tag-dac9ddb0.pth --gpus 8 --out ssn_thumos14_rgb_bn_inception.pkl --eval thumos14
 ```
 
 

@@ -109,7 +109,7 @@ data = dict(
         div_255=False,
         size_divisor=32,
         flip_ratio=0,
-        resize_keep_ratio=True,
+        resize_keep_ratio=False, # True
         test_mode=False),
     test=dict(
         type=dataset_type,
@@ -131,7 +131,7 @@ data = dict(
         div_255=False,
         size_divisor=32,
         flip_ratio=0,
-        resize_keep_ratio=True,
+        resize_keep_ratio=False, # True
         test_mode=True))
 # optimizer
 optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=1e-6)
